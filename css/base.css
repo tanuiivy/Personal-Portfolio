@@ -71,6 +71,8 @@ a:hover {
   color: var(--ink);
   font-family: var(--font-display);
   overflow: hidden;
+  /* No text inputs on the site, so hide the blinking text caret */
+  caret-color: transparent;
 }
 
 /* Short pages fill the window so the footer sits at the bottom */
