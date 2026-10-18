@@ -2,7 +2,7 @@
 // Relies on js/cursor.js for the custom cursor and party mode.
 (function () {
   var GREETS = ['Hey', 'Habari', 'Hola', 'Salut', 'Ciao', 'Hallo', 'Oi'];
-  var WORDS = [['Design', '#E0368A'], ['Code', '#0098A6'], ['Tinker', '#6B8F00'], ['Make', '#7B5CFF']];
+  var WORDS = [['Design', '#E0368A'], ['Code', '#0098A6'], ['Tinker', '#D4FF3A'], ['Make', '#7B5CFF']];
   var IVY_PREVIEW = { color: '#F6F4F1', img: 'assets/images/ivy-photo.jpeg', ivy: true };
 
   var page = document.querySelector('.page');
