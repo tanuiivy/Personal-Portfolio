@@ -80,6 +80,9 @@
 }
 
 .cs-visit {
+  border: 0;
+  font-family: inherit;
+  cursor: inherit;
   padding: 18px 28px;
   border-radius: 999px;
   background: var(--ink);

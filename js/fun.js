@@ -41,6 +41,11 @@
     setTimeout(function () { heads = false; }, 6500);
     toast('hi, it\'s me \u2726');
   }
+  // "coming soon" buttons: <button data-soon="message">
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-soon]');
+    if (b) toast(b.getAttribute('data-soon'));
+  });
   // click sparkles
   document.addEventListener('pointerdown', function (e) { burst(e.clientX, e.clientY, 7, false); });
   // logo: 5 quick clicks

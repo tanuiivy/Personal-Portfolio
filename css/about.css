@@ -372,7 +372,6 @@
 }
 
 .block--music { gap: 48px; }
-.block--facts { gap: 40px; }
 
 .block__head {
   display: flex;
@@ -987,109 +986,6 @@
 }
 
 /* ==========================================================================
-   Personal: fun fact flip cards
-   ========================================================================== */
-.facts {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 28px;
-}
-
-.fact {
-  appearance: none;
-  display: block;
-  width: 100%;
-  height: 400px;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: none;
-  font: inherit;
-  color: inherit;
-  text-align: left;
-  cursor: inherit;
-  perspective: 1200px;
-  user-select: none;
-  transform: rotate(var(--tilt));
-  transition: transform .35s var(--spring);
-}
-
-.fact__inner {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: transform .7s cubic-bezier(.3, 1.3, .4, 1);
-}
-
-.fact.is-flipped .fact__inner { transform: rotateY(180deg); }
-
-.fact__face {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 28px;
-  box-sizing: border-box;
-  border-radius: 22px;
-  border: 2px solid var(--ink);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.fact__front {
-  background: var(--bg);
-  color: var(--fg);
-  box-shadow: 8px 8px 0 var(--ink);
-}
-
-.fact__back {
-  transform: rotateY(180deg);
-  background: var(--paper);
-  color: var(--ink);
-  box-shadow: 8px 8px 0 var(--bg);
-}
-
-.fact__top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: var(--font-mono);
-  font-size: 13px;
-}
-
-.fact__num {
-  font-weight: 900;
-  font-size: clamp(45px, 15.6vw, 200px);
-  line-height: .8;
-}
-
-.fact__dot {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--bg);
-  border: 2px solid var(--ink);
-}
-
-.fact__text {
-  font-weight: 900;
-  font-size: 40px;
-  line-height: 1;
-  text-transform: uppercase;
-  text-wrap: pretty;
-}
-
-.fact__cta {
-  font-family: var(--font-mono);
-  font-size: 14px;
-}
-
-.fact__cta--muted { color: var(--muted); }
-
-/* ==========================================================================
    Hover states
    ========================================================================== */
 @media (hover: hover) {
@@ -1113,7 +1009,6 @@
   .player__link:hover { color: var(--paper); }
   .album:hover { transform: translateY(-4px); color: var(--ink); }
   .built__item a:hover { color: var(--accent); }
-  .fact:hover { transform: translateY(-8px); }
 }
 
 /* ==========================================================================
@@ -1123,7 +1018,6 @@
   .intro__bottom,
   .split,
   .player { grid-template-columns: minmax(0, 1fr); }
-  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .vinyl { zoom: .72; }
 
   /* Stack the two sides so the big titles don't collide */
@@ -1144,7 +1038,4 @@
 
 @media (max-width: 560px) {
   .albums__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 20px; }
-  .facts { grid-template-columns: minmax(0, 1fr); }
-  .fact { height: 360px; }
-  .fact__text { font-size: 34px; }
 }

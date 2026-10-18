@@ -1,5 +1,5 @@
 // About page interactions: photo carousel, bio highlights, Professional/Personal
-// switcher, music player, fun fact cards. Relies on js/cursor.js for the cursor.
+// switcher and music player. Relies on js/cursor.js for the cursor.
 (function () {
   var page = document.querySelector('.page');
   if (!page) return;
@@ -135,20 +135,5 @@
     $('.player__prev', player).addEventListener('click', function () { play((playing + TRACKS.length - 1) % TRACKS.length); });
     $('.player__next', player).addEventListener('click', function () { play((playing + 1) % TRACKS.length); });
     render();
-  })();
-
-  /* ---------------------------------------------------------------------
-     Fun fact flip cards
-     --------------------------------------------------------------------- */
-  (function () {
-    var cards = $$('.fact'), hint = $('.facts__hint');
-    cards.forEach(function (card) {
-      card.addEventListener('click', function () {
-        var on = card.classList.toggle('is-flipped');
-        card.setAttribute('aria-pressed', on);
-        var all = cards.every(function (c) { return c.classList.contains('is-flipped'); });
-        hint.textContent = all ? 'now you know me a little better' : 'tap a card';
-      });
-    });
   })();
 })();
