@@ -1,0 +1,473 @@
+/* Case study pages (Reading Corner, Tumatiko, Soko).
+   Each page sets --accent / --accent-glow / --more-hover on .page. */
+
+/* ==========================================================================
+   Header: back link, title, meta row
+   ========================================================================== */
+.cs-head {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 32px var(--gutter) 0;
+}
+
+.cs-back {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.cs-kicker {
+  font-family: var(--font-mono);
+  font-size: 14px;
+}
+
+.cs-title {
+  margin: 0;
+  font-weight: 900;
+  font-size: clamp(41px, 14.1vw, 180px);
+  line-height: .82;
+  text-transform: uppercase;
+}
+
+.cs-title span {
+  color: var(--accent);
+}
+
+.cs-title--xl {
+  font-size: clamp(54px, 20vw, 220px);
+}
+
+.cs-sub {
+  margin: 0;
+  max-width: var(--sub-width, 720px);
+  font-family: var(--font-mono);
+  font-size: 22px;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+.cs-meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+  gap: 32px;
+  align-items: end;
+  margin: 0 var(--gutter);
+  padding: 48px 0;
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: 14px;
+}
+
+.cs-meta dl {
+  display: contents;
+}
+
+.cs-meta dl > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cs-meta dt {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.cs-meta dd {
+  margin: 0;
+}
+
+.cs-visit {
+  padding: 18px 28px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 18px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform .25s var(--spring), background .2s;
+}
+
+/* ==========================================================================
+   Screenshot in a browser frame
+   ========================================================================== */
+.cs-shot {
+  padding: 56px var(--gutter);
+}
+
+.cs-shot__frame {
+  display: block;
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px var(--accent-soft);
+  transition: box-shadow .3s, border-color .3s;
+}
+
+.cs-shot__frame--plain {
+  background: #EDECE9;
+  box-shadow: none;
+}
+
+.cs-shot__bar {
+  display: flex;
+  gap: 6px;
+  padding: 12px 16px;
+  background: #F6F4F1;
+  border-bottom: 1px solid var(--rule);
+}
+
+.cs-shot__bar span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.cs-shot__bar span:nth-child(1) { background: var(--pink); }
+.cs-shot__bar span:nth-child(2) { background: #E85D00; }
+.cs-shot__bar span:nth-child(3) { background: #6B8F00; }
+
+.cs-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ==========================================================================
+   Text sections
+   ========================================================================== */
+.cs-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: clamp(28px, 5vw, 64px);
+  padding: 0 var(--gutter) 80px;
+}
+
+.cs-split--first { padding-top: 24px; }
+.cs-split--center { align-items: center; }
+
+.cs-split__side {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cs-split__title {
+  margin: 0;
+  font-weight: 900;
+  font-size: clamp(32px, 5vw, 64px);
+  text-transform: uppercase;
+  line-height: .9;
+}
+
+.cs-split__title span { color: var(--accent); }
+
+.cs-split__note {
+  font-family: var(--font-mono);
+  font-size: 14px;
+}
+
+.cs-lede {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 20px;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.cs-prose {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: var(--font-mono);
+  font-size: 18px;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.cs-prose p { margin: 0; }
+
+.cs-embed {
+  border: 2px solid var(--ink);
+  border-radius: 20px;
+  box-shadow: 6px 6px 0 var(--accent);
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.cs-embed iframe {
+  display: block;
+  border: 0;
+}
+
+/* ==========================================================================
+   Numbered lists (features, tricky bits)
+   ========================================================================== */
+.cs-list {
+  padding: 0 var(--gutter) 80px;
+}
+
+.cs-list h2 {
+  margin: 0;
+  padding-bottom: 14px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.cs-list ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid var(--rule);
+}
+
+.cs-feature {
+  display: grid;
+  grid-template-columns: 80px minmax(0, 1fr) minmax(0, var(--body-fr, 1.2fr));
+  gap: 24px;
+  align-items: baseline;
+  padding: 28px 0;
+  border-top: 1px solid var(--rule);
+  transition: padding .3s, color .2s;
+}
+
+.cs-feature__n,
+.cs-issue__n {
+  font-family: var(--font-mono);
+  font-size: 14px;
+}
+
+.cs-feature h3 {
+  margin: 0;
+  font-weight: 900;
+  font-size: clamp(28px, 4.4vw, 56px);
+  text-transform: uppercase;
+  line-height: .95;
+}
+
+.cs-list--pretty p { text-wrap: pretty; }
+
+.cs-feature p {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+.cs-feature__head {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cs-feature__who {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.cs-issue {
+  display: grid;
+  grid-template-columns: 80px minmax(0, 1fr);
+  gap: 24px;
+  align-items: baseline;
+  padding: 24px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.cs-issue__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+  gap: 24px;
+  align-items: baseline;
+}
+
+.cs-issue h3 {
+  margin: 0;
+  font-weight: 900;
+  font-size: clamp(24px, 3.8vw, 48px);
+  text-transform: uppercase;
+  line-height: .95;
+}
+
+.cs-issue p {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 16px;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+/* ==========================================================================
+   Pipeline diagram, tech stack, learnings, disclaimer
+   ========================================================================== */
+.cs-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 0 var(--gutter) 80px;
+}
+
+.cs-label {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.cs-flow__steps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: 15px;
+}
+
+.cs-flow__step {
+  padding: 14px 20px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+}
+
+.cs-flow__step--end {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+.cs-flow__note {
+  margin: 0;
+  max-width: 720px;
+  font-family: var(--font-mono);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+.cs-stack {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  padding: 20px 0;
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-mono);
+}
+
+.cs-stack h3 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.cs-stack ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cs-stack li {
+  padding: 8px 14px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  font-size: 14px;
+}
+
+.cs-wrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 48px;
+  padding: 0 var(--gutter) 80px;
+}
+
+.cs-wrap > section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cs-wrap h2 {
+  margin: 0;
+  font-weight: 900;
+  font-size: clamp(24px, 3.8vw, 48px);
+  text-transform: uppercase;
+  line-height: .9;
+}
+
+.cs-wrap ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cs-wrap li,
+.cs-wrap p {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.cs-wrap p { text-wrap: pretty; }
+
+.cs-disclaimer {
+  margin: 0;
+  padding: 0 var(--gutter) var(--gutter);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   Footer: "More projects" link
+   ========================================================================== */
+.cs-footer {
+  padding-top: 40px;
+}
+
+.cs-more {
+  font-weight: 900;
+  font-size: clamp(27px, 9.4vw, 120px);
+  text-transform: uppercase;
+  line-height: .85;
+  color: var(--ink);
+  text-decoration: none;
+  transition: color .2s;
+}
+
+/* ==========================================================================
+   Hover + responsive
+   ========================================================================== */
+@media (hover: hover) {
+  .cs-visit:hover { transform: scale(1.05); background: var(--accent); color: var(--paper); }
+  .cs-shot__frame:hover { border-color: var(--accent); box-shadow: var(--accent-glow); }
+  .cs-feature:hover { padding-left: 24px; color: var(--accent); }
+  .cs-more:hover { color: var(--more-hover); }
+}
+
+@media (max-width: 760px) {
+  .cs-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  /* Give the button its own row so it isn't squeezed into half the width */
+  .cs-visit { grid-column: 1 / -1; justify-self: start; }
+  .cs-split,
+  .cs-feature,
+  .cs-issue,
+  .cs-issue__body { grid-template-columns: minmax(0, 1fr); }
+  .cs-stack { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+}

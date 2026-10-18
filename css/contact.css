@@ -1,0 +1,209 @@
+/* Contact page: headline + intro, email / social / CV cards. */
+
+.site-footer--bare {
+  padding-top: 0;
+}
+
+/* ==========================================================================
+   Layout (auto-fit collapses to one column below ~990px on its own)
+   ========================================================================== */
+.contact {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr));
+  gap: clamp(28px, 5vw, 64px);
+  align-items: end;
+  padding: 40px var(--gutter) 80px;
+}
+
+.contact__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.contact__title {
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: clamp(54px, 15vw, 212px);
+  line-height: .82;
+}
+
+.contact__title > * {
+  display: block;
+}
+
+.contact__word {
+  color: var(--pink);
+  font-style: italic;
+  user-select: none;
+}
+
+.contact__lede {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: var(--font-mono);
+}
+
+.contact__lede p {
+  margin: 0;
+  max-width: 420px;
+  font-size: 17px;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.status {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  font-size: 13px;
+}
+
+.status__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #6B8F00;
+}
+
+/* ==========================================================================
+   Cards
+   ========================================================================== */
+.contact__links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: var(--font-mono);
+}
+
+.email-card {
+  appearance: none;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin: 0;
+  padding: 28px;
+  border: 2px solid var(--ink);
+  border-radius: 24px;
+  background: var(--lime);
+  box-shadow: 8px 8px 0 var(--ink);
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: inherit;
+  user-select: none;
+  transition: transform .25s var(--spring), box-shadow .2s;
+}
+
+.email-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+}
+
+.email-card__hint {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--lime);
+}
+
+.email-card__address,
+.social-card__name,
+.cv-card__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.email-card__address {
+  font-size: clamp(28px, 3.4vw, 42px);
+  overflow-wrap: anywhere;
+}
+
+.social-cards {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+}
+
+.social-card {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 20px;
+  border-radius: 20px;
+  border: 2px solid var(--ink);
+  background: var(--tint);
+  color: var(--ink);
+  text-decoration: none;
+  transition: transform .25s var(--spring), box-shadow .2s;
+}
+
+.social-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.social-card__top > span:first-child,
+.cv-card__label {
+  font-size: 13px;
+}
+
+.social-card__name {
+  font-size: 28px;
+  overflow-wrap: anywhere;
+}
+
+.icon-dot {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--paper);
+}
+
+.cv-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  border-radius: 20px;
+  border: 2px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  text-decoration: none;
+  transition: transform .25s var(--spring), box-shadow .2s;
+}
+
+.cv-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cv-card__label { color: #C9C6C0; }
+.cv-card__title { font-size: 28px; }
+
+@media (hover: hover) {
+  .email-card:hover { transform: translate(-2px, -2px); box-shadow: 10px 10px 0 var(--ink); }
+  .social-card:hover { transform: translate(-3px, -3px); box-shadow: 6px 6px 0 var(--accent); color: var(--ink); }
+  .cv-card:hover { transform: translate(-3px, -3px); box-shadow: 6px 6px 0 var(--violet); color: var(--paper); }
+}

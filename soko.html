@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Soko — Ivy Tanui</title>
+  <meta name="description" content="Case study: Soko, designed and built by Ivy Tanui.">
+  <meta property="og:title" content="Soko — Ivy Tanui">
+  <meta property="og:description" content="Case study: Soko, designed and built by Ivy Tanui.">
+  <meta property="og:image" content="assets/images/ivy-photo-2.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&amp;family=Big+Shoulders+Display:wght@700;900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/case-study.css">
+
+  <script src="js/cursor.js" defer></script>
+  <script src="js/fun.js" defer></script>
+</head>
+<body>
+  <div class="page" style="--accent:#19706E;--accent-glow:0 0 0 4px #19706E;--more-hover:#E0368A">
+    <header>
+      <nav class="site-nav" aria-label="Main">
+        <a class="logo" data-cur="1" href="index.html" aria-label="Ivy, home"><span>I</span>VY</a>
+        <ul class="nav-links">
+          <li><a class="is-section" data-cur="1" href="projects.html">PROJECTS</a></li>
+          <li><a data-cur="1" href="about.html">ABOUT</a></li>
+          <li><a data-cur="1" href="contact.html">CONTACT</a></li>
+        </ul>
+        <span></span>
+      </nav>
+    </header>
+
+    <main>
+      <div class="cs-head">
+        <a class="cs-back" data-cur="1" href="projects.html">← ALL PROJECTS</a>
+        <div class="cs-kicker">PROJECT 03</div>
+        <h1 class="cs-title cs-title--xl">So<span>ko</span></h1>
+        <p class="cs-sub" style="--sub-width:760px">An Android app that explains AI stock predictions to first-time investors at the Nairobi Securities Exchange.</p>
+      </div>
+
+      <div class="cs-meta">
+        <dl>
+          <div><dt>ROLE</dt><dd>Solo: data, model, backend, Android</dd></div>
+          <div><dt>TYPE</dt><dd>Final-year project</dd></div>
+          <div><dt>YEAR</dt><dd>2026</dd></div>
+        </dl>
+        <!-- TODO: replace "#" with the Soko GitHub repo URL (the design has no link yet) -->
+        <a class="cs-visit" data-cur="1" href="#">View on GitHub ↗</a>
+      </div>
+
+      <div class="cs-shot">
+        <div class="cs-shot__frame cs-shot__frame--plain">
+          <img src="assets/images/soko-overview.png" alt="Five Soko screens: watchlist, KCB stock detail, why KCB is neutral, news and sentiment, and Learn" width="1920" height="1080">
+        </div>
+      </div>
+
+      <section class="cs-split cs-split--first">
+        <h2 class="cs-split__title">In a<br><span>nutshell</span></h2>
+        <p class="cs-lede">Soko predicts whether each of 55 NSE stocks will go up, stay flat or go down the next trading day, and explains why in plain language. It's built for people who are new to investing. It teaches, and it never tells anyone to buy or sell.</p>
+      </section>
+
+      <section class="cs-split">
+        <h2 class="cs-split__title">Why I<br><span>built it</span></h2>
+        <div class="cs-prose">
+          <p>I was new to investing too. When I started looking at the NSE, everything was either a hot tip with no reasoning or a dashboard full of charts I didn't understand yet.</p>
+          <p>Lots of young Kenyans are in the same spot: curious, ready to start, and not sure who to trust. So I built the app I wished I had, one that explains its thinking and teaches you along the way.</p>
+        </div>
+      </section>
+
+      <section class="cs-split cs-split--center">
+        <div class="cs-split__side">
+          <h2 class="cs-split__title">Built<br><span>to this</span></h2>
+          <span class="cs-split__note">The song on repeat while I made it.</span>
+        </div>
+        <div class="cs-embed">
+          <iframe title="Ego (Live in London) by Asake on Spotify" src="https://open.spotify.com/embed/track/6eS51q8SE2bdSVyecHtAWZ?utm_source=generator" width="100%" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </section>
+
+      <section class="cs-list cs-list--pretty" style="--body-fr:1.3fr">
+        <h2>WHAT IT DOES</h2>
+        <ol>
+          <li class="cs-feature" data-cur="1">
+            <span class="cs-feature__n">01</span>
+            <h3>Next-day trend</h3>
+            <p>Up, neutral or down for each stock, with the probability of each.</p>
+          </li>
+          <li class="cs-feature" data-cur="1">
+            <span class="cs-feature__n">02</span>
+            <h3>Why this prediction</h3>
+            <p>The six technical signals the model uses, ranked by how much each one mattered and explained in plain words.</p>
+          </li>
+          <li class="cs-feature" data-cur="1">
+            <span class="cs-feature__n">03</span>
+            <h3>News context</h3>
+            <p>FinBERT sentiment from recent articles, clearly labelled as context and not part of the prediction.</p>
+          </li>
+          <li class="cs-feature" data-cur="1">
+            <span class="cs-feature__n">04</span>
+            <h3>Learn as you go</h3>
+            <p>Lessons, a glossary, streaks and a three-question check on whether you understood the explanation.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="cs-flow">
+        <h2 class="cs-label">HOW IT WORKS</h2>
+        <ol class="cs-flow__steps">
+          <li class="cs-flow__step">Price + news data</li>
+          <li aria-hidden="true">→</li>
+          <li class="cs-flow__step">Batch prediction job</li>
+          <li aria-hidden="true">→</li>
+          <li class="cs-flow__step">MySQL</li>
+          <li aria-hidden="true">→</li>
+          <li class="cs-flow__step">Flask API</li>
+          <li aria-hidden="true">→</li>
+          <li class="cs-flow__step cs-flow__step--end">Android app</li>
+        </ol>
+        <p class="cs-flow__note">Predictions and their SHAP explanations are worked out ahead of time and stored, so the API only reads rows and stays fast.</p>
+      </section>
+
+      <section class="cs-list">
+        <h2>CALLS I MADE</h2>
+        <ol>
+          <li class="cs-issue">
+            <span class="cs-issue__n">01</span>
+            <div class="cs-issue__body"><h3>Predict ahead of time</h3><p>A batch job makes every prediction and stores it with its SHAP values, so the app never waits on the model.</p></div>
+          </li>
+          <li class="cs-issue">
+            <span class="cs-issue__n">02</span>
+            <div class="cs-issue__body"><h3>No peeking at the future</h3><p>A chronological 70/15/15 split, so the model never trains on days that come after the ones it’s tested on.</p></div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="cs-list">
+        <h2>BUILT WITH</h2>
+        <ol>
+          <li class="cs-stack"><h3>ML</h3><ul><li>Python</li><li>pandas</li><li>XGBoost</li><li>SHAP</li><li>LIME</li><li>FinBERT</li></ul></li>
+          <li class="cs-stack"><h3>BACKEND</h3><ul><li>Flask</li><li>SQLAlchemy</li><li>MySQL</li><li>pytest</li></ul></li>
+          <li class="cs-stack"><h3>MOBILE</h3><ul><li>Kotlin</li><li>Jetpack Compose</li></ul></li>
+        </ol>
+      </section>
+
+      <div class="cs-wrap">
+        <section>
+          <h2>What I learned</h2>
+          <ul>
+            <li>✦ To check whether a feature actually helps before keeping it.</li>
+            <li>✦ How to write explanations for people with no finance background.</li>
+            <li>✦ How to take a project end to end, from raw data to a phone.</li>
+          </ul>
+        </section>
+        <section>
+          <h2>What's next</h2>
+          <p>Live market data, more news coverage (only 153 articles so far), and testing the explanations with real users.</p>
+        </section>
+      </div>
+
+      <p class="cs-disclaimer">Prototype built on historical data. Not financial advice.</p>
+    </main>
+
+    <footer class="site-footer cs-footer">
+      <div class="cta">
+        <a class="cs-more" data-cur="1" href="projects.html">More<br>projects →</a>
+        <a class="pill-link" data-cur="1" href="contact.html">Say hi ↗</a>
+      </div>
+      <div class="footer-bar">
+        <ul class="social">
+          <li><a data-cur="1" href="https://github.com/tanuiivy" target="_blank" rel="noopener">GitHub ↗</a></li>
+          <li><a data-cur="1" href="https://www.linkedin.com/in/ivy-tanui" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+        </ul>
+        <span class="scratch" data-scratch="1">psst, type "party" or "ivy"</span>
+      </div>
+    </footer>
+
+    <div class="cursor" aria-hidden="true"><img src="assets/images/fuzzy-cursor.png" alt=""></div>
+  </div>
+</body>
+</html>

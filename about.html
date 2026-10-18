@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About — Ivy Tanui</title>
+  <meta name="description" content="Who Ivy is, what she has worked on, and what she listens to while building.">
+  <meta property="og:title" content="About — Ivy Tanui">
+  <meta property="og:description" content="Who Ivy is, what she has worked on, and what she listens to while building.">
+  <meta property="og:image" content="assets/images/ivy-photo-2.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&amp;family=Big+Shoulders+Display:wght@700;900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/about.css">
+
+  <script src="js/cursor.js" defer></script>
+  <script src="js/about.js" defer></script>
+  <script src="js/fun.js" defer></script>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <nav class="site-nav" aria-label="Main">
+        <a class="logo" data-cur="1" href="index.html" aria-label="Ivy, home"><span>I</span>VY</a>
+        <ul class="nav-links">
+          <li><a data-cur="1" href="projects.html">PROJECTS</a></li>
+          <li><span aria-current="page">ABOUT</span></li>
+          <li><a data-cur="1" href="contact.html">CONTACT</a></li>
+        </ul>
+        <span></span>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Intro: title, photo carousel, bio, quick facts -->
+      <section class="intro">
+        <div class="intro__top">
+          <h1 class="intro__title"><span>About</span><span class="intro__ivy">Ivy</span></h1>
+
+          <div class="carousel" aria-roledescription="carousel" aria-label="Photos of Ivy">
+            <div class="carousel__frame">
+              <div class="carousel__card carousel__card--lime"></div>
+              <div class="carousel__card carousel__card--violet"></div>
+              <div class="carousel__photos">
+                <img class="carousel__slide is-active" src="assets/images/ivy-photo.jpeg" alt="Ivy, photo 1 of 4">
+                <img class="carousel__slide" src="assets/images/ivy-photo-2.jpeg" alt="Ivy, photo 2 of 4">
+                <img class="carousel__slide" src="assets/images/ivy-photo-3.jpeg" alt="Ivy, photo 3 of 4">
+                <img class="carousel__slide" src="assets/images/ivy-photo-5.jpeg" alt="Ivy, photo 4 of 4">
+              </div>
+            </div>
+            <div class="carousel__bar">
+              <span class="carousel__count" aria-live="polite">01 / 04</span>
+              <div class="carousel__btns">
+                <button type="button" class="round-btn carousel__prev" data-cur="1" aria-label="Previous photo">←</button>
+                <button type="button" class="round-btn carousel__next" data-cur="1" aria-label="Next photo">→</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="intro__bottom">
+          <p class="bio" data-cur="1"><span class="hl" style="--hl:#D4FF3A;--d:0s">Software developer</span> in Nairobi. I'm in my <span class="hl" style="--hl:#F7C6DD;--d:.08s">final year</span> of Business Information Technology at Strathmore, <span class="hl" style="--hl:#D9D0FF;--d:.16s">full-stack trained</span>, and growing into <span class="hl" style="--hl:#BFEFF2;--d:.24s">AI</span>, with a home lab I keep tinkering with. I like building things people <span class="hl" style="--hl:#D4FF3A;--d:.32s">actually enjoy using</span>.</p>
+
+          <dl class="facts-list">
+            <div><dt>BASED IN</dt><dd>Nairobi, Kenya</dd></div>
+            <div><dt>STUDYING</dt><dd>BBIT, Strathmore University</dd></div>
+            <div><dt>INTO</dt><dd>AI · Full-stack · Home labbing</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- Professional / Personal switcher -->
+      <section class="sides" aria-label="Pick a side">
+        <p class="sides__hint">PICK A SIDE</p>
+        <div class="switch is-open">
+          <button type="button" class="switch__side switch__side--pro" data-cur="1" data-side="pro" aria-controls="panel-pro" aria-expanded="false">
+            <span class="switch__top"><span class="switch__num">01</span><span class="switch__arrow">→</span></span>
+            <span class="switch__body">
+              <span class="switch__title">Professional</span>
+              <span class="switch__sub">Skills &amp; tools · Education</span>
+            </span>
+          </button>
+          <span class="switch__divider"></span>
+          <button type="button" class="switch__side switch__side--personal" data-cur="1" data-side="personal" aria-controls="panel-personal" aria-expanded="false">
+            <span class="switch__top"><span class="switch__num">02</span><span class="switch__arrow">←</span></span>
+            <span class="switch__body">
+              <span class="switch__title">Personal</span>
+              <span class="switch__sub">Books · Music · Fun facts</span>
+            </span>
+          </button>
+          <span class="switch__or" aria-hidden="true">OR</span>
+        </div>
+      </section>
+
+      <!-- ===================== Professional ===================== -->
+      <div id="panel-pro" class="panel" hidden>
+        <section class="split">
+          <h2 class="split__title">Skills &amp;<br>tools</h2>
+          <div class="skills">
+            <div class="skills__group">
+              <h3>LANGUAGES</h3>
+              <ul class="chips"><li data-cur="1">Python</li><li data-cur="1">JavaScript</li><li data-cur="1">Kotlin</li><li data-cur="1">SQL</li></ul>
+            </div>
+            <div class="skills__group">
+              <h3>FRONTEND &amp; MOBILE</h3>
+              <ul class="chips"><li data-cur="1">React</li><li data-cur="1">Vite</li><li data-cur="1">Tailwind</li><li data-cur="1">TanStack Query</li><li data-cur="1">Jetpack Compose</li></ul>
+            </div>
+            <div class="skills__group">
+              <h3>BACKEND</h3>
+              <ul class="chips"><li data-cur="1">Flask</li><li data-cur="1">SQLAlchemy</li><li data-cur="1">Celery</li><li data-cur="1">Redis</li><li data-cur="1">pytest</li></ul>
+            </div>
+            <div class="skills__group">
+              <h3>DATA &amp; ML</h3>
+              <ul class="chips"><li data-cur="1">pandas</li><li data-cur="1">XGBoost</li><li data-cur="1">SHAP</li><li data-cur="1">LIME</li><li data-cur="1">FinBERT</li><li data-cur="1">Power BI</li></ul>
+            </div>
+            <div class="skills__group">
+              <h3>DATABASES</h3>
+              <ul class="chips"><li data-cur="1">PostgreSQL</li><li data-cur="1">MySQL</li><li data-cur="1">Oracle</li><li data-cur="1">MS SQL Server</li></ul>
+            </div>
+            <div class="skills__group">
+              <h3>SERVICES &amp; SHIPPING</h3>
+              <ul class="chips"><li data-cur="1">Paystack</li><li data-cur="1">Resend</li><li data-cur="1">Cloudflare R2</li><li data-cur="1">Vercel</li><li data-cur="1">Render</li><li data-cur="1">Neon</li></ul>
+            </div>
+            <div class="skills__group">
+              <h3>PROCESS &amp; AUTOMATION</h3>
+              <ul class="chips"><li data-cur="1">Process mapping</li><li data-cur="1">RPA (UiPath)</li><li data-cur="1">ETL monitoring</li></ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="split">
+          <div class="split__side">
+            <h2 class="split__title">Experience</h2>
+            <a class="cv-link" data-cur="1" href="assets/docs/Ivy-Tanui-CV.pdf" download="Ivy-Tanui-CV.pdf">Full CV ↓</a>
+          </div>
+          <div>
+            <article class="entry" data-cur="1">
+              <span class="entry__date">JAN – APR 2026</span>
+              <div class="entry__body">
+                <h3 class="entry__title">ICT Intern</h3>
+                <span class="entry__org">I&amp;M Bank · Nairobi</span>
+                <div class="entry__detail">
+                  <p class="entry__text">Four months across process, data and infrastructure, seeing how a bank's tech runs end to end.</p>
+                  <dl class="entry__areas">
+                    <div><dt>Process</dt><dd>Mapped the M-Pesa Paybill short code process end to end, found the bottlenecks, and pitched an RPA redesign to the BPR team.</dd></div>
+                    <div><dt>Data</dt><dd>Wrote SQL on Oracle and MS SQL Server, monitored ETL jobs, and built Power BI dashboards.</dd></div>
+                    <div><dt>Infra</dt><dd>Reviewed VLAN configs and firewall logs, verified DR replication, and sat in on change board reviews.</dd></div>
+                  </dl>
+                </div>
+              </div>
+            </article>
+            <article class="entry" data-cur="1">
+              <span class="entry__date">JAN – MAR 2025</span>
+              <div class="entry__body">
+                <h3 class="entry__title">IT Attachment</h3>
+                <span class="entry__org">East Africa School of Aviation · Nairobi</span>
+                <ul class="entry__points">
+                  <li>— Troubleshot and repaired printers, projectors and PCs, and gave end-user IT support that reduced downtime.</li>
+                  <li>— Helped build and test an Academic Management System.</li>
+                </ul>
+              </div>
+            </article>
+            <article class="entry" data-cur="1">
+              <span class="entry__date">JAN – MAR 2024</span>
+              <div class="entry__body">
+                <h3 class="entry__title">Volunteer</h3>
+                <span class="entry__org">Kenya National Library Service · Nairobi</span>
+                <ul class="entry__points">
+                  <li>— Helped organise and digitise library resources, and registered and assisted library users.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="split">
+          <h2 class="split__title">Education</h2>
+          <div>
+            <article class="entry" data-cur="1">
+              <span class="entry__date">APR 2023 – NOW</span>
+              <div class="entry__body">
+                <h3 class="entry__title">Bachelor of Business Information Technology</h3>
+                <div class="entry__row">
+                  <span class="entry__org">Strathmore University</span>
+                  <span class="badge"><span class="badge__dot"></span>FINAL YEAR</span>
+                </div>
+              </div>
+            </article>
+            <article class="entry" data-cur="1">
+              <span class="entry__date">2018 – 2022</span>
+              <div class="entry__body">
+                <h3 class="entry__title">KCSE</h3>
+                <span class="entry__org">Alliance Girls High School</span>
+              </div>
+            </article>
+
+            <div class="certs">
+              <div class="certs__head">
+                <h3>Certifications</h3>
+                <span>(04)</span>
+              </div>
+              <article class="cert" data-cur="1">
+                <span class="cert__date">APR 2026</span>
+                <h4 class="cert__name">App Development with Swift</h4>
+                <span class="cert__issuer">Apple Authorised Training</span>
+                <p class="cert__desc">Certificate of Achievement. iOS app development in Swift.</p>
+              </article>
+              <article class="cert" data-cur="1">
+                <span class="cert__date">FEB 2026</span>
+                <h4 class="cert__name">Introduction to Automation</h4>
+                <span class="cert__issuer">UiPath</span>
+                <p class="cert__desc">Robotic process automation fundamentals, applied in my M-Pesa Paybill process redesign at I&amp;M Bank.</p>
+              </article>
+              <article class="cert" data-cur="1">
+                <span class="cert__date">NOV 2024 – JUL 2025</span>
+                <h4 class="cert__name">Full-Stack Software Engineering</h4>
+                <span class="cert__issuer">Moringa School</span>
+                <p class="cert__desc">Back end and front end: JavaScript, React, Python, Flask.</p>
+              </article>
+              <article class="cert" data-cur="1">
+                <span class="cert__date">DEC 2024</span>
+                <h4 class="cert__name">IT Automation with Python</h4>
+                <span class="cert__issuer">Google</span>
+                <p class="cert__desc">Scripting, troubleshooting, debugging and automation with Python.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ===================== Personal ===================== -->
+      <div id="panel-personal" class="panel" hidden>
+        <section class="split">
+          <h2 class="split__title split__title--sm">Currently<br>reading</h2>
+          <a class="reading" data-cur="1" href="https://cheropsreadingcorner-13fm.vercel.app/" target="_blank" rel="noopener">
+            <span class="reading__title">I See Buildings Fall Like Lightning</span>
+            <span class="reading__author">Keiran Goddard</span>
+            <span class="reading__bar"><span style="width:45%"></span></span>
+            <span class="reading__more">More on my reading corner ↗</span>
+          </a>
+        </section>
+
+        <section class="block block--music">
+          <div class="block__head">
+            <h2 class="block__title">On <span style="color:var(--violet)">repeat</span></h2>
+            <span class="block__hint">press play</span>
+          </div>
+
+          <div class="player">
+            <div class="vinyl" aria-hidden="true">
+              <div class="vinyl__disc">
+                <div class="vinyl__shine"></div>
+                <div class="vinyl__label"><div class="vinyl__hole"></div></div>
+              </div>
+            </div>
+            <div class="player__info">
+              <div class="player__now">
+                <span class="player__status">ON REPEAT</span>
+                <span class="player__title">Sonini</span>
+                <span class="player__artist">Sun-El Musician, Simmy, Lelo Kamau</span>
+              </div>
+              <div class="player__controls">
+                <button type="button" class="player__skip player__prev" data-cur="1" aria-label="Previous track">◀◀</button>
+                <button type="button" class="player__play" data-cur="1" aria-label="Play">▶</button>
+                <button type="button" class="player__skip player__next" data-cur="1" aria-label="Next track">▶▶</button>
+              </div>
+              <ol class="tracks"></ol>
+              <a class="player__link" data-cur="1" href="https://open.spotify.com/track/7uorcEb4It46F3KkWhnjwb" target="_blank" rel="noopener">Full song on Spotify ↗</a>
+            </div>
+          </div>
+
+          <div class="albums">
+            <h3 class="albums__label">ALL-TIME FAVOURITE ALBUMS</h3>
+            <div class="albums__grid">
+              <a class="album" data-cur="1" href="https://open.spotify.com/album/2P2Xwvh2xWXIZ1OWY9S9o5" target="_blank" rel="noopener" style="--shadow:#D4FF3A">
+                <span class="album__cover"><img src="https://i.scdn.co/image/ab67616d0000b2735c837cc621c1ec82bf3c81ac" alt="Watch The Throne album cover" loading="lazy"></span>
+                <span class="album__meta"><span class="album__name">Watch The Throne</span><span class="album__artist">JAY-Z &amp; Kanye West</span></span>
+              </a>
+              <a class="album" data-cur="1" href="https://open.spotify.com/album/24hB22GCffWSxZyTmfuCAb" target="_blank" rel="noopener" style="--shadow:#E0368A">
+                <span class="album__cover"><img src="https://i.scdn.co/image/ab67616d0000b273753bd171a42d4c9e8ef2530e" alt="MAYVIS album cover" loading="lazy"></span>
+                <span class="album__meta"><span class="album__name">MAYVIS</span><span class="album__artist">Dlala Thukzin</span></span>
+              </a>
+              <a class="album" data-cur="1" href="https://open.spotify.com/album/0fhmJYVhW0e4i33pCLPA5i" target="_blank" rel="noopener" style="--shadow:#7B5CFF">
+                <span class="album__cover"><img src="https://i.scdn.co/image/ab67616d0000b27399da48a530f6ca2ef86da3cc" alt="Cole World: The Sideline Story album cover" loading="lazy"></span>
+                <span class="album__meta"><span class="album__name">Cole World: The Sideline Story</span><span class="album__artist">J. Cole</span></span>
+              </a>
+              <a class="album" data-cur="1" href="https://open.spotify.com/album/2UJwKSBUz6rtW4QLK74kQu" target="_blank" rel="noopener" style="--shadow:#0098A6">
+                <span class="album__cover"><img src="https://i.scdn.co/image/ab67616d0000b2730d1d6e9325275f104f8e33f3" alt="BEYONCÉ album cover" loading="lazy"></span>
+                <span class="album__meta"><span class="album__name">BEYONCÉ</span><span class="album__artist">Beyoncé</span></span>
+              </a>
+              <a class="album" data-cur="1" href="https://open.spotify.com/album/4kPTj6wYQUYtgBOZb1E6Pg" target="_blank" rel="noopener" style="--shadow:#E85D00">
+                <span class="album__cover"><img src="https://i.scdn.co/image/ab67616d0000b273f7a57aa86405590d5f9e2831" alt="TIMELESS album cover" loading="lazy"></span>
+                <span class="album__meta"><span class="album__name">TIMELESS</span><span class="album__artist">KAYTRANADA</span></span>
+              </a>
+              <a class="album" data-cur="1" href="https://open.spotify.com/album/6RXMHSqYlYAEpDsNYYBj6B" target="_blank" rel="noopener" style="--shadow:#19706E">
+                <span class="album__cover"><img src="https://i.scdn.co/image/ab67616d0000b27397ab1b10778be7fafcda7930" alt="Genesis album cover" loading="lazy"></span>
+                <span class="album__meta"><span class="album__name">Genesis</span><span class="album__artist">Leon Thomas</span></span>
+              </a>
+              <a class="album" data-cur="1" href="https://open.spotify.com/album/7oBZ821DTjUc2Ky2fV6l6Q" target="_blank" rel="noopener" style="--shadow:#E0368A">
+                <span class="album__cover"><img src="https://i.scdn.co/image/ab67616d0000b273d8acadd7be5455ea09c06cf9" alt="Icon album cover" loading="lazy"></span>
+                <span class="album__meta"><span class="album__name">Icon</span><span class="album__artist">Brent Faiyaz</span></span>
+              </a>
+              <a class="album" data-cur="1" href="https://open.spotify.com/album/5zUDvKAyEKkrhYLWJJWGPQ" target="_blank" rel="noopener" style="--shadow:#D4FF3A">
+                <span class="album__cover"><img src="https://i.scdn.co/image/ab67616d0000b273bbee5481e94a03f4fd26fac4" alt="Chasing Summer album cover" loading="lazy"></span>
+                <span class="album__meta"><span class="album__name">Chasing Summer</span><span class="album__artist">SiR</span></span>
+              </a>
+              <a class="album" data-cur="1" href="https://open.spotify.com/album/3CogjJSvRqbIQuNJVR2JcP" target="_blank" rel="noopener" style="--shadow:#7B5CFF">
+                <span class="album__cover"><img src="https://i.scdn.co/image/ab67616d0000b2735d9adfcba461d3b755cf2ddb" alt="Dawn album cover" loading="lazy"></span>
+                <span class="album__meta"><span class="album__name">Dawn</span><span class="album__artist">Yebba</span></span>
+              </a>
+              <a class="album" data-cur="1" href="https://open.spotify.com/album/5OkHt7JZ6HSkJH359y2H31" target="_blank" rel="noopener" style="--shadow:#0098A6">
+                <span class="album__cover"><img src="https://i.scdn.co/image/ab67616d0000b273229e87b6d1da512c14164cc0" alt="Dreamer album cover" loading="lazy"></span>
+                <span class="album__meta"><span class="album__name">Dreamer</span><span class="album__artist">Bobby "Blue" Bland</span></span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section class="split">
+          <div class="split__side split__side--tight">
+            <h2 class="split__title split__title--sm">Built<br>to these</h2>
+            <p class="built__note">One song per project, on repeat while I made it.</p>
+          </div>
+          <div class="built">
+            <div class="built__item" style="--accent:#E0368A">
+              <a data-cur="1" href="reading-corner.html">CHEROP'S READING CORNER →</a>
+              <div class="built__embed"><iframe title="Down by the Water by Ocie Elliott on Spotify" src="https://open.spotify.com/embed/track/4Vutl1Y7OJOBwIqVISNmzL?utm_source=generator" width="100%" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+            </div>
+            <div class="built__item" style="--accent:#0098A6">
+              <a data-cur="1" href="tumatiko.html">TUMATIKO →</a>
+              <div class="built__embed"><iframe title="Main Titles by Theodore Shapiro on Spotify" src="https://open.spotify.com/embed/track/2dssT0G1eXmqLoNIzKEuxN?utm_source=generator" width="100%" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+            </div>
+            <div class="built__item" style="--accent:#19706E">
+              <a data-cur="1" href="soko.html">SOKO →</a>
+              <div class="built__embed"><iframe title="Ego (Live in London) by Asake on Spotify" src="https://open.spotify.com/embed/track/6eS51q8SE2bdSVyecHtAWZ?utm_source=generator" width="100%" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="block block--facts">
+          <div class="block__head">
+            <h2 class="block__title">Fun <span style="color:var(--pink)">facts</span></h2>
+            <span class="block__hint facts__hint">tap a card</span>
+          </div>
+          <div class="facts">
+            <button type="button" class="fact" data-cur="1" aria-pressed="false" style="--bg:#E0368A;--fg:#FFFFFF;--tilt:-3deg">
+              <span class="fact__inner">
+                <span class="fact__face fact__front">
+                  <span class="fact__top"><span>FACT</span><span>01 / 03</span></span>
+                  <span class="fact__num">01</span>
+                  <span class="fact__cta">tap to reveal →</span>
+                </span>
+                <span class="fact__face fact__back">
+                  <span class="fact__top"><span>FACT 01</span><span class="fact__dot"></span></span>
+                  <span class="fact__text">I built a whole website just to keep track of my books.</span>
+                  <span class="fact__cta fact__cta--muted">tap to flip back</span>
+                </span>
+              </span>
+            </button>
+            <button type="button" class="fact" data-cur="1" aria-pressed="false" style="--bg:#D4FF3A;--fg:#121212;--tilt:2deg">
+              <span class="fact__inner">
+                <span class="fact__face fact__front">
+                  <span class="fact__top"><span>FACT</span><span>02 / 03</span></span>
+                  <span class="fact__num">02</span>
+                  <span class="fact__cta">tap to reveal →</span>
+                </span>
+                <span class="fact__face fact__back">
+                  <span class="fact__top"><span>FACT 02</span><span class="fact__dot"></span></span>
+                  <span class="fact__text">If I love it, I'll rewatch, relisten or reread it on repeat.</span>
+                  <span class="fact__cta fact__cta--muted">tap to flip back</span>
+                </span>
+              </span>
+            </button>
+            <button type="button" class="fact" data-cur="1" aria-pressed="false" style="--bg:#7B5CFF;--fg:#FFFFFF;--tilt:-1.5deg">
+              <span class="fact__inner">
+                <span class="fact__face fact__front">
+                  <span class="fact__top"><span>FACT</span><span>03 / 03</span></span>
+                  <span class="fact__num">03</span>
+                  <span class="fact__cta">tap to reveal →</span>
+                </span>
+                <span class="fact__face fact__back">
+                  <span class="fact__top"><span>FACT 03</span><span class="fact__dot"></span></span>
+                  <span class="fact__text">Dogs scare me. Yes, even the small ones.</span>
+                  <span class="fact__cta fact__cta--muted">tap to flip back</span>
+                </span>
+              </span>
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer site-footer--compact">
+      <section class="cta" aria-label="Contact">
+        <h2>Got an<br><span>idea?</span></h2>
+        <a class="pill-link" data-cur="1" href="contact.html">Say hi ↗</a>
+      </section>
+      <div class="footer-bar">
+        <ul class="social">
+          <li><a data-cur="1" href="https://github.com/tanuiivy" target="_blank" rel="noopener">GitHub ↗</a></li>
+          <li><a data-cur="1" href="https://www.linkedin.com/in/ivy-tanui" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+        </ul>
+        <span class="scratch" data-scratch="1">psst, type "party" or "ivy"</span>
+      </div>
+    </footer>
+
+    <div class="cursor" aria-hidden="true"><img src="assets/images/fuzzy-cursor.png" alt=""></div>
+  </div>
+</body>
+</html>
