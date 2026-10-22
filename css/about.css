@@ -674,7 +674,7 @@
    Personal: music player
    ========================================================================== */
 .player {
-  --np: #F2D21B;
+  --np: #FFD21F;
   position: relative;
   overflow: hidden;
   display: grid;
@@ -685,34 +685,45 @@
   border-radius: 28px;
   background: var(--ink);
   color: var(--paper);
+  isolation: isolate;
 }
 
 .vinyl {
-  position: relative;
-  z-index: 0;
   width: 340px;
   height: 340px;
 }
 
-/* Ambient glow: a blurred copy of the cover bleeding out from behind the record */
-.vinyl::before {
+/* Ambient glow: a blurred copy of the cover washed across the whole card */
+.player::before,
+.player::after {
   content: '';
   position: absolute;
-  inset: -30%;
-  z-index: -1;
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--np) 0 30%, transparent 62%), var(--cover) center / cover no-repeat, var(--np);
-  filter: blur(60px) saturate(1.8) brightness(1.15);
-  opacity: .55;
+  pointer-events: none;
+}
+
+.player::before {
+  inset: -25%;
+  background: radial-gradient(circle at 28% 50%, var(--np) 0 22%, transparent 55%), var(--cover) center / cover no-repeat, var(--np);
+  filter: blur(70px) saturate(1.8) brightness(1.1);
+  opacity: .6;
   transition: opacity .4s;
   animation: aura 2.4s ease-in-out infinite alternate;
   animation-play-state: paused;
 }
 
-.player.is-playing .vinyl::before {
-  opacity: .8;
+/* Darken the text side so the white type stays readable */
+.player::after {
+  inset: 0;
+  background: linear-gradient(90deg, rgba(18, 18, 18, 0) 20%, rgba(18, 18, 18, .35) 45%, rgba(18, 18, 18, .6) 85%);
+}
+
+.player.is-playing::before {
+  opacity: .85;
   animation-play-state: running;
 }
+
+.vinyl,
+.player__info { position: relative; z-index: 1; }
 
 @keyframes aura {
   to { transform: scale(1.12); }
@@ -783,7 +794,7 @@
 .player__status {
   font-family: var(--font-mono);
   font-size: 13px;
-  color: var(--np);
+  color: rgba(255, 255, 255, .8);
 }
 
 .player__title {
@@ -796,7 +807,7 @@
 .player__artist {
   font-family: var(--font-mono);
   font-size: 16px;
-  color: #C9C6C0;
+  color: rgba(255, 255, 255, .85);
 }
 
 .player__controls {
@@ -832,7 +843,7 @@
   width: 72px;
   height: 72px;
   border: 0;
-  background: var(--np);
+  background: var(--paper);
   color: var(--ink);
   font-size: 22px;
   font-weight: 600;
@@ -840,68 +851,37 @@
 }
 
 .tracks {
+  display: flex;
+  gap: 10px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
+/* One dot per song, in its cover colour; the current one stretches into a pill */
 .track {
-  display: grid;
-  grid-template-columns: 36px minmax(0, 1fr) auto;
-  gap: 14px;
-  align-items: center;
-  width: 100%;
-  padding: 12px 0;
-  border: 0;
-  border-top: 1px solid #333333;
-  background: none;
-  color: var(--paper);
-  text-align: left;
+  display: block;
+  width: 14px;
+  height: 14px;
+  padding: 0;
+  border: 2px solid var(--paper);
+  border-radius: 7px;
+  background: transparent;
   cursor: inherit;
-  user-select: none;
-  transition: padding .3s;
+  transition: width .3s var(--spring), background .3s, border-color .3s;
 }
 
-.track__n { font-family: var(--font-mono); font-size: 13px; }
-
-.track__title {
-  font-family: var(--font-mono);
-  font-size: 15px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.track.is-current {
+  width: 40px;
+  border-color: var(--dot);
+  background: var(--dot);
 }
-
-.eq {
-  display: inline-flex;
-  gap: 3px;
-  align-items: flex-end;
-  height: 18px;
-}
-
-.eq span {
-  width: 4px;
-  height: 18px;
-  border-radius: 2px;
-  background: #555555;
-  transform-origin: bottom;
-  transform: scaleY(.3);
-}
-
-.eq.is-on span {
-  background: currentColor;
-  transform: none;
-  animation: eq .8s ease-in-out infinite;
-}
-
-.eq.is-on span:nth-child(2) { animation-delay: .2s; }
-.eq.is-on span:nth-child(3) { animation-delay: .4s; }
 
 .player__link {
   align-self: flex-start;
   font-family: var(--font-mono);
   font-size: 13px;
-  color: #C9C6C0;
+  color: rgba(255, 255, 255, .8);
   text-decoration: none;
 }
 
@@ -1034,7 +1014,7 @@
   .reading:hover { color: var(--pink); }
   .player__skip:hover { background: var(--paper); color: var(--ink); }
   .player__play:hover { transform: scale(1.08); }
-  .track:hover { padding-left: 10px; }
+  .track:hover { background: var(--dot); border-color: var(--dot); }
   .player__link:hover { color: var(--paper); }
   .album:hover { transform: translateY(-4px); color: var(--ink); }
   .built__item a:hover { color: var(--accent); }
