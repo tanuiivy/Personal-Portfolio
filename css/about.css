@@ -675,30 +675,47 @@
    ========================================================================== */
 .player {
   --np: #F2D21B;
-  --fg: var(--paper);
-  --fg-soft: rgba(255, 255, 255, .75);
-  --line: rgba(255, 255, 255, .3);
+  position: relative;
+  overflow: hidden;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   gap: clamp(28px, 5vw, 56px);
   align-items: center;
   padding: clamp(24px, 5vw, 48px);
   border-radius: 28px;
-  background: var(--np);
-  color: var(--fg);
-  transition: background .5s, color .5s;
-}
-
-/* Bright covers (yellow, orange) get dark text */
-.player.is-light {
-  --fg: var(--ink);
-  --fg-soft: rgba(18, 18, 18, .7);
-  --line: rgba(18, 18, 18, .25);
+  background: var(--ink);
+  color: var(--paper);
 }
 
 .vinyl {
+  position: relative;
+  z-index: 0;
   width: 340px;
   height: 340px;
+}
+
+/* Ambient glow: a blurred copy of the cover bleeding out from behind the record */
+.vinyl::before {
+  content: '';
+  position: absolute;
+  inset: -30%;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--np) 0 30%, transparent 62%), var(--cover) center / cover no-repeat, var(--np);
+  filter: blur(60px) saturate(1.8) brightness(1.15);
+  opacity: .55;
+  transition: opacity .4s;
+  animation: aura 2.4s ease-in-out infinite alternate;
+  animation-play-state: paused;
+}
+
+.player.is-playing .vinyl::before {
+  opacity: .8;
+  animation-play-state: running;
+}
+
+@keyframes aura {
+  to { transform: scale(1.12); }
 }
 
 .vinyl__disc {
@@ -730,6 +747,7 @@
   margin: -75px 0 0 -75px;
   border-radius: 50%;
   background-color: var(--np);
+  background-image: var(--cover);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -765,7 +783,7 @@
 .player__status {
   font-family: var(--font-mono);
   font-size: 13px;
-  color: var(--fg);
+  color: var(--np);
 }
 
 .player__title {
@@ -778,7 +796,7 @@
 .player__artist {
   font-family: var(--font-mono);
   font-size: 16px;
-  color: var(--fg-soft);
+  color: #C9C6C0;
 }
 
 .player__controls {
@@ -803,9 +821,9 @@
 .player__skip {
   width: 52px;
   height: 52px;
-  border: 2px solid var(--fg);
+  border: 2px solid var(--paper);
   background: transparent;
-  color: var(--fg);
+  color: var(--paper);
   font-size: 16px;
   transition: background .2s, color .2s;
 }
@@ -814,8 +832,8 @@
   width: 72px;
   height: 72px;
   border: 0;
-  background: var(--fg);
-  color: var(--np);
+  background: var(--np);
+  color: var(--ink);
   font-size: 22px;
   font-weight: 600;
   transition: transform .25s var(--spring), background .3s;
@@ -835,16 +853,14 @@
   width: 100%;
   padding: 12px 0;
   border: 0;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid #333333;
   background: none;
-  color: var(--fg-soft);
+  color: var(--paper);
   text-align: left;
   cursor: inherit;
   user-select: none;
   transition: padding .3s;
 }
-
-.track.is-current { color: var(--fg); font-weight: 700; }
 
 .track__n { font-family: var(--font-mono); font-size: 13px; }
 
@@ -867,7 +883,7 @@
   width: 4px;
   height: 18px;
   border-radius: 2px;
-  background: var(--line);
+  background: #555555;
   transform-origin: bottom;
   transform: scaleY(.3);
 }
@@ -885,7 +901,7 @@
   align-self: flex-start;
   font-family: var(--font-mono);
   font-size: 13px;
-  color: var(--fg-soft);
+  color: #C9C6C0;
   text-decoration: none;
 }
 
@@ -1016,10 +1032,10 @@
   .cert:hover { padding-left: 16px; }
 
   .reading:hover { color: var(--pink); }
-  .player__skip:hover { background: var(--fg); color: var(--np); }
+  .player__skip:hover { background: var(--paper); color: var(--ink); }
   .player__play:hover { transform: scale(1.08); }
   .track:hover { padding-left: 10px; }
-  .player__link:hover { color: var(--fg); }
+  .player__link:hover { color: var(--paper); }
   .album:hover { transform: translateY(-4px); color: var(--ink); }
   .built__item a:hover { color: var(--accent); }
 }

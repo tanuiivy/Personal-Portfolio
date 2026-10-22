@@ -64,10 +64,10 @@
      --------------------------------------------------------------------- */
   (function () {
     var TRACKS = [
-      { title: 'Sonini', artist: 'Sun-El Musician, Simmy, Lelo Kamau', color: '#F2D21B', light: true, id: '7uorcEb4It46F3KkWhnjwb', cover: 'ab67616d0000b273bb00024467b367bc5d1b809a', preview: '827277e828e54d2b4991ec32611f635cd9a18d52' },
+      { title: 'Sonini', artist: 'Sun-El Musician, Simmy, Lelo Kamau', color: '#F2D21B', id: '7uorcEb4It46F3KkWhnjwb', cover: 'ab67616d0000b273bb00024467b367bc5d1b809a', preview: '827277e828e54d2b4991ec32611f635cd9a18d52' },
       { title: 'BODYGUARD', artist: 'Beyoncé', color: '#B22234', id: '6Y4rniIxibegzsg8cdWAWV', cover: 'ab67616d0000b273208e593c3565dae1295b5a26', preview: '8138560bb5a1ce76a00eabd304d22b89bf3efc6d' },
       { title: 'Dollar And A Dream III', artist: 'J. Cole', color: '#9A6A44', id: '1Yl4UBgyoHPgyne7rEsFZp', cover: 'ab67616d0000b27399da48a530f6ca2ef86da3cc', preview: '8a9e4930bd992c099c21dd2841ae26c8eafd70ed' },
-      { title: 'As', artist: 'Stevie Wonder', color: '#E8642C', light: true, id: '13toFl1UwJPsRxDiD9jgtn', cover: 'ab67616d0000b2732fee61bfec596bb6f5447c50', preview: '61c2cd8a2a552a5c528e9eff51a5b3e2307a9b03' }
+      { title: 'As', artist: 'Stevie Wonder', color: '#E8642C', id: '13toFl1UwJPsRxDiD9jgtn', cover: 'ab67616d0000b2732fee61bfec596bb6f5447c50', preview: '61c2cd8a2a552a5c528e9eff51a5b3e2307a9b03' }
     ];
 
     var player = $('.player'), list = $('.tracks', player);
@@ -91,8 +91,7 @@
       var t = TRACKS[playing];
       player.style.setProperty('--np', t.color);
       player.classList.toggle('is-playing', isPlaying);
-      player.classList.toggle('is-light', !!t.light);
-      $('.vinyl__label', player).style.backgroundImage = 'url("https://i.scdn.co/image/' + t.cover + '")';
+      player.style.setProperty('--cover', 'url("https://i.scdn.co/image/' + t.cover + '")');
       $('.player__status', player).textContent = isPlaying ? 'NOW PLAYING' : 'ON REPEAT';
       $('.player__title', player).textContent = t.title;
       $('.player__artist', player).textContent = t.artist;
@@ -101,7 +100,7 @@
       btn.textContent = isPlaying ? 'II' : '▶';
       btn.setAttribute('aria-label', isPlaying ? 'Pause' : 'Play');
       rows.forEach(function (row, i) {
-        row.classList.toggle('is-current', i === playing);
+        row.style.color = i === playing ? TRACKS[i].color : '#FFFFFF';
         $('.eq', row).classList.toggle('is-on', i === playing && isPlaying);
       });
     }
