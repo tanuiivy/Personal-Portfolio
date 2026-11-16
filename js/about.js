@@ -67,7 +67,8 @@
       { title: 'Sonini', artist: 'Sun-El Musician, Simmy, Lelo Kamau', color: '#FFD21F', id: '7uorcEb4It46F3KkWhnjwb', cover: 'ab67616d0000b273bb00024467b367bc5d1b809a', preview: '827277e828e54d2b4991ec32611f635cd9a18d52' },
       { title: 'BODYGUARD', artist: 'Beyoncé', color: '#2B4FE0', id: '6Y4rniIxibegzsg8cdWAWV', cover: 'ab67616d0000b273208e593c3565dae1295b5a26', preview: '8138560bb5a1ce76a00eabd304d22b89bf3efc6d' },
       { title: 'I Love You', artist: 'Snoh Aalegra', color: '#9B6BFF', id: '0yXMe310dgpquMTa7OmHKk', cover: 'ab67616d0000b273e2d08741179d2f68a41b1cb4', preview: '258757c2df00c954c07417fc3a3f1d9f09347d7c' },
-      { title: 'world is yours.', artist: 'Brent Faiyaz', color: '#F0443A', id: '61LIrROTdBzB2wOsgFNODa', cover: 'ab67616d0000b273d8acadd7be5455ea09c06cf9', preview: '92f3ca939ccf9af990bc14feaaefa5fa30bb3001' }
+      { title: 'world is yours.', artist: 'Brent Faiyaz', color: '#F0443A', id: '61LIrROTdBzB2wOsgFNODa', cover: 'ab67616d0000b273d8acadd7be5455ea09c06cf9', preview: '92f3ca939ccf9af990bc14feaaefa5fa30bb3001' },
+      { title: 'MORNING DEW (DONK)', artist: 'Beyoncé', color: '#2FBF8F', id: '4ZYlzwjjAJrflwWg4DJTlT', cover: 'ab67616d0000b27329803857f9f242ab9fdcfe40', preview: 'c324c3d34b3b6ff0f2e8aace561f3e2d724ad37a' }
     ];
 
     var player = $('.player'), list = $('.tracks', player);
