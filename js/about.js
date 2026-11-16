@@ -77,6 +77,30 @@
   })();
 
   /* ---------------------------------------------------------------------
+     Albums shelf: drag to scroll with a mouse
+     --------------------------------------------------------------------- */
+  (function () {
+    var shelf = document.querySelector('.albums__grid');
+    if (!shelf) return;
+    var down = false, moved = false, startX = 0, startLeft = 0;
+    shelf.addEventListener('pointerdown', function (e) {
+      if (e.pointerType !== 'mouse') return;
+      down = true; moved = false; startX = e.clientX; startLeft = shelf.scrollLeft;
+    });
+    window.addEventListener('pointermove', function (e) {
+      if (!down) return;
+      var dx = e.clientX - startX;
+      if (Math.abs(dx) > 5) { moved = true; shelf.style.scrollSnapType = 'none'; }
+      if (moved) shelf.scrollLeft = startLeft - dx;
+    });
+    window.addEventListener('pointerup', function () {
+      if (!down) return;
+      down = false; shelf.style.scrollSnapType = '';
+    });
+    shelf.addEventListener('click', function (e) { if (moved) { e.preventDefault(); moved = false; } }, true);
+  })();
+
+  /* ---------------------------------------------------------------------
      Music player (30s Spotify previews)
      --------------------------------------------------------------------- */
   (function () {
