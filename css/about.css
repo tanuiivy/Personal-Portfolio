@@ -891,40 +891,47 @@
 .albums {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 28px;
+  padding-top: 56px;
+  border-top: 2px solid var(--ink);
 }
 
 .albums__label {
   margin: 0;
-  font-family: var(--font-mono);
-  font-size: 13px;
-  font-weight: 400;
-  color: var(--muted);
+  font-weight: 900;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: .9;
+  text-transform: uppercase;
+  color: var(--ink);
 }
 
 .albums__grid {
+  counter-reset: album;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 32px 28px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 44px 28px;
 }
 
 .album {
+  counter-increment: album;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
   color: var(--ink);
   text-decoration: none;
-  transition: transform .25s var(--spring);
+  transition: transform .35s var(--spring);
 }
 
+/* The cover sits on a coloured "sleeve" that peeks out below it */
 .album__cover {
+  position: relative;
   display: block;
   aspect-ratio: 1 / 1;
-  border: 2px solid var(--ink);
-  border-radius: 16px;
+  border-radius: 6px;
   overflow: hidden;
-  box-shadow: 6px 6px 0 var(--shadow);
   background: var(--ink);
+  box-shadow: 0 14px 0 -8px var(--shadow), 0 18px 30px -12px rgba(0, 0, 0, .45);
+  transition: box-shadow .35s ease;
 }
 
 .album__cover img {
@@ -932,24 +939,36 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform .6s ease;
 }
 
 .album__meta {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 4px;
+  padding-top: 8px;
+}
+
+.album__meta::before {
+  content: counter(album, decimal-leading-zero);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 4px;
 }
 
 .album__name {
   font-weight: 900;
-  font-size: 24px;
+  font-size: 20px;
   text-transform: uppercase;
   line-height: 1;
 }
 
 .album__artist {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 12px;
+  color: var(--muted);
 }
 
 /* ==========================================================================
@@ -1016,13 +1035,19 @@
   .player__play:hover { transform: scale(1.08); }
   .track:hover { background: var(--dot); border-color: var(--dot); }
   .player__link:hover { color: var(--paper); }
-  .album:hover { transform: translateY(-4px); color: var(--ink); }
+  .album:hover { transform: translateY(-6px); color: var(--ink); }
+  .album:hover .album__cover { box-shadow: 0 14px 0 -8px var(--shadow), 0 26px 40px -12px var(--shadow); }
+  .album:hover .album__cover img { transform: scale(1.06); }
   .built__item a:hover { color: var(--accent); }
 }
 
 /* ==========================================================================
    Responsive
    ========================================================================== */
+@media (max-width: 1000px) {
+  .albums__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
 @media (max-width: 760px) {
   .intro__bottom,
   .split,
@@ -1046,5 +1071,5 @@
 }
 
 @media (max-width: 560px) {
-  .albums__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 20px; }
+  .albums__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 20px; }
 }
