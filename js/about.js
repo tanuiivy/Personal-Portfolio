@@ -60,6 +60,23 @@
   })();
 
   /* ---------------------------------------------------------------------
+     Currently reading (live from the reading corner; static HTML is the fallback)
+     --------------------------------------------------------------------- */
+  (function () {
+    fetch('https://cheropsreadingcorner-13fm.vercel.app/api/currently-reading')
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+      .then(function (d) {
+        var b = d.books && d.books[0];
+        if (!b) return;
+        document.getElementById('reading-title').textContent = b.title;
+        document.getElementById('reading-author').textContent = b.author;
+        document.getElementById('reading-bar').style.width = b.progress + '%';
+        window.__reading = b.title;
+      })
+      .catch(function () {});
+  })();
+
+  /* ---------------------------------------------------------------------
      Music player (30s Spotify previews)
      --------------------------------------------------------------------- */
   (function () {
@@ -68,7 +85,7 @@
       { title: 'BODYGUARD', artist: 'Beyoncé', color: '#2B4FE0', id: '6Y4rniIxibegzsg8cdWAWV', cover: 'ab67616d0000b273208e593c3565dae1295b5a26', preview: '8138560bb5a1ce76a00eabd304d22b89bf3efc6d' },
       { title: 'I Love You', artist: 'Snoh Aalegra', color: '#9B6BFF', id: '0yXMe310dgpquMTa7OmHKk', cover: 'ab67616d0000b273e2d08741179d2f68a41b1cb4', preview: '258757c2df00c954c07417fc3a3f1d9f09347d7c' },
       { title: 'world is yours.', artist: 'Brent Faiyaz', color: '#F0443A', id: '61LIrROTdBzB2wOsgFNODa', cover: 'ab67616d0000b273d8acadd7be5455ea09c06cf9', preview: '92f3ca939ccf9af990bc14feaaefa5fa30bb3001' },
-      { title: 'MORNING DEW (DONK)', artist: 'Beyoncé', color: '#2FBF8F', id: '4ZYlzwjjAJrflwWg4DJTlT', cover: 'ab67616d0000b27329803857f9f242ab9fdcfe40', preview: 'c324c3d34b3b6ff0f2e8aace561f3e2d724ad37a' }
+      { title: 'White Noise', artist: 'Disclosure, AlunaGeorge', color: '#1FA8FF', id: '5EWFuo4ObEnfndc57sTuIo', cover: 'ab67616d0000b273786201dca187d2b0c956c24b', preview: '6271ceeefdd17d8180fb1823704acf8943bdfce3' }
     ];
 
     var player = $('.player'), list = $('.tracks', player);

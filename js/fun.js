@@ -72,7 +72,7 @@
     buf = (buf + k).slice(-8);
     if (/hello$/.test(buf) || /habari$/.test(buf)) { var hb = /habari$/.test(buf); buf = ''; toast(hb ? 'nzuri sana! \u2726' : 'hello to you too \u2726'); burst(innerWidth / 2, innerHeight / 2, 24, true); }
     if (/ivy$/.test(buf)) { buf = ''; headRain(); }
-    if (/books$/.test(buf)) { buf = ''; toast('currently reading: I See Buildings Fall Like Lightning'); }
+    if (/books$/.test(buf)) { buf = ''; toast('currently reading: ' + (window.__reading || 'I See Buildings Fall Like Lightning')); }
   });
   // idle nudge
   var idleT; function idle() { clearTimeout(idleT); idleT = setTimeout(function () { toast('still there? try typing "ivy"'); }, 25000); }
